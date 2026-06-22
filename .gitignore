@@ -6,7 +6,10 @@ __pycache__/
 *.swo
 *~
 .DS_Store
-
+zig/
+.agent/*
+.agentic.json
+zig-x86_64-linux-0.15.2.tar.xz
 /docs/*
 !/docs/next/
 !/docs/next/**

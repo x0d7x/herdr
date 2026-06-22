@@ -191,8 +191,7 @@ fn compute_view_internal(
     let active_ws = app.active.and_then(|i| app.workspaces.get(i));
     let show_tab_bar = active_ws.is_some()
         && main_area.height > 1
-        && !(app.hide_tab_bar_when_single_tab
-            && active_ws.map_or(false, |ws| ws.tabs.len() <= 1));
+        && !(app.hide_tab_bar_when_single_tab && active_ws.is_some_and(|ws| ws.tabs.len() <= 1));
     let (tab_bar_rect, terminal_area) = if show_tab_bar {
         let [tab_bar_rect, terminal_area] =
             Layout::vertical([Constraint::Length(1), Constraint::Min(1)]).areas(main_area);

@@ -454,6 +454,9 @@ pub struct UiConfig {
     pub sidebar_hidden_width: u16,
     /// Hide the tab bar when the active workspace has 0 or 1 tabs.
     pub hide_tab_bar_when_single_tab: bool,
+    /// Hide pane borders when a pane is zoomed in a multi-pane tab.
+    /// When true, the zoomed pane gets the full available area without a 1-cell border inset.
+    pub hide_pane_borders_when_zoomed: bool,
 }
 
 /// Cursor shape (DECSCUSR) used for the forced IME anchor.
@@ -637,6 +640,7 @@ impl Default for UiConfig {
             sound: SoundConfig::default(),
             sidebar_hidden_width: 4,
             hide_tab_bar_when_single_tab: false,
+            hide_pane_borders_when_zoomed: false,
         }
     }
 }
@@ -824,6 +828,19 @@ show_agent_labels_on_pane_borders = true
 "#;
         let config: Config = toml::from_str(toml).unwrap();
         assert!(config.ui.show_agent_labels_on_pane_borders);
+    }
+
+    #[test]
+    fn hide_pane_borders_when_zoomed_default_off_and_parse() {
+        let default_config = Config::default();
+        assert!(!default_config.ui.hide_pane_borders_when_zoomed);
+
+        let toml = r#"
+[ui]
+hide_pane_borders_when_zoomed = true
+"#;
+        let config: Config = toml::from_str(toml).unwrap();
+        assert!(config.ui.hide_pane_borders_when_zoomed);
     }
 
     #[test]

@@ -265,6 +265,10 @@ const DEFAULT_CONFIG: &str = r##"# herdr configuration
 # Tab bar reappears automatically when a second tab is created.
 # hide_tab_bar_when_single_tab = false
 
+# Hide pane borders when a pane is zoomed in a multi-pane tab.
+# When true, the zoomed pane gets the full available area.
+# hide_pane_borders_when_zoomed = false
+
 # Background notification popup delivery
 [ui.toast]
 # off = disable pop-up notifications

@@ -1342,6 +1342,8 @@ pub struct AppState {
     pub sidebar_hidden_width: u16,
     /// Hide the tab bar when the active workspace has 0 or 1 tabs.
     pub hide_tab_bar_when_single_tab: bool,
+    /// Hide pane borders when a pane is zoomed in a multi-pane tab.
+    pub hide_pane_borders_when_zoomed: bool,
     /// Ratio of sidebar height allocated to the workspaces section.
     pub sidebar_section_split: f32,
     pub agent_panel_scope: AgentPanelScope,
@@ -1694,6 +1696,7 @@ impl AppState {
             sidebar_collapsed: false,
             sidebar_hidden_width: 4,
             hide_tab_bar_when_single_tab: false,
+            hide_pane_borders_when_zoomed: false,
             sidebar_section_split: 0.5,
             agent_panel_scope: AgentPanelScope::AllWorkspaces,
             mouse_capture: true,

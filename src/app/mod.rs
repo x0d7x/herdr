@@ -520,6 +520,7 @@ impl App {
             sidebar_collapsed: false,
             sidebar_hidden_width: config.ui.sidebar_hidden_width,
             hide_tab_bar_when_single_tab: config.ui.hide_tab_bar_when_single_tab,
+            hide_pane_borders_when_zoomed: config.ui.hide_pane_borders_when_zoomed,
             sidebar_section_split,
             agent_panel_scope,
             mouse_capture: config.ui.mouse_capture,
@@ -1259,6 +1260,7 @@ impl App {
                 self.state.toast_config = config.ui.toast.clone();
                 self.state.sidebar_hidden_width = config.ui.sidebar_hidden_width;
                 self.state.hide_tab_bar_when_single_tab = config.ui.hide_tab_bar_when_single_tab;
+                self.state.hide_pane_borders_when_zoomed = config.ui.hide_pane_borders_when_zoomed;
             }
         }
 
